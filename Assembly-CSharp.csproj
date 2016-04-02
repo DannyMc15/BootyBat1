@@ -6,7 +6,7 @@
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
 	<RootNamespace></RootNamespace>
-	<ProjectGuid>{C4BEE7A5-724A-7078-6F49-F2583E7D6D57}</ProjectGuid>
+	<ProjectGuid>{49D68D40-9E98-E9E3-13F3-B1F2AB6E0F17}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<AssemblyName>Assembly-CSharp</AssemblyName>
@@ -51,13 +51,19 @@
      <Compile Include="Assets\Scripts\Behaviors\Jump.cs" />
      <Compile Include="Assets\Scripts\Behaviors\SimpleMovement.cs" />
      <Compile Include="Assets\Scripts\Behaviors\Walk.cs" />
+     <Compile Include="Assets\Scripts\Behaviors\fireProjectile.cs" />
      <Compile Include="Assets\Scripts\Collision\Collectable.cs" />
      <Compile Include="Assets\Scripts\Collision\CollisionState.cs" />
+     <Compile Include="Assets\Scripts\Collision\FallingHazardScripts\FallingHazard.cs" />
+     <Compile Include="Assets\Scripts\Collision\FallingHazardScripts\MakeHazardFall.cs" />
+     <Compile Include="Assets\Scripts\Collision\FallingHazardScripts\killCoconut.cs" />
      <Compile Include="Assets\Scripts\Collision\LevelEnd.cs" />
      <Compile Include="Assets\Scripts\Collision\Spikes.cs" />
      <Compile Include="Assets\Scripts\FollowCam.cs" />
      <Compile Include="Assets\Scripts\Input\InputManager.cs" />
      <Compile Include="Assets\Scripts\Input\InputState.cs" />
+     <Compile Include="Assets\Scripts\echoBlast.cs" />
+     <Compile Include="Assets\Scripts\tilingGround.cs" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
