@@ -8,6 +8,12 @@ public class Jump : AbstractBehavior {
     public float jumpDelay = .1f;
     public int jumpCount = 1;
 
+	public AudioClip flapSound1;
+	public AudioClip flapSound2;
+	public AudioClip flapSound3;
+	private int clipCounter = 0;
+	AudioSource audio;
+
     protected float lastJumpTime = 0;
     protected int jumpsRemaining = 0;//for limiting number of flaps
 
@@ -16,6 +22,7 @@ public class Jump : AbstractBehavior {
 	// Use this for initialization
 	void Start () {
         cs = FindObjectOfType<CollisionState>();
+		audio = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -32,6 +39,18 @@ public class Jump : AbstractBehavior {
             if(canJump && holdTime < .1f && Time.time - lastJumpTime > jumpDelay /*&& jumpsRemaining > 0*/){
                 OnFlap();
 				print("flap");
+				if(clipCounter==0){
+					audio.PlayOneShot(flapSound1);
+					clipCounter++;
+				}
+				else if (clipCounter==1){
+					audio.PlayOneShot(flapSound2);
+					clipCounter++;
+				}
+				else if(clipCounter==2){
+					audio.PlayOneShot(flapSound3);
+					clipCounter=clipCounter-2;
+				}
             }
         }
 	}

@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class enemyProjectile : MonoBehaviour {
-
+	/*
 	public Vector2 firePosition = Vector2.zero;
 	public Color debugColor = Color.yellow;
 	public float debugRadius = 3f;
@@ -42,5 +42,5 @@ public class enemyProjectile : MonoBehaviour {
 		pos.y += transform.position.y;
 		
 		Gizmos.DrawWireSphere (pos, debugRadius);
-	}
+	}*/
 }
