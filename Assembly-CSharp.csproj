@@ -51,11 +51,14 @@
      <Compile Include="Assets\Scripts\Behaviors\Jump.cs" />
      <Compile Include="Assets\Scripts\Behaviors\SimpleMovement.cs" />
      <Compile Include="Assets\Scripts\Behaviors\Walk.cs" />
+     <Compile Include="Assets\Scripts\Behaviors\enemyProjectile.cs" />
      <Compile Include="Assets\Scripts\Behaviors\fireProjectile.cs" />
      <Compile Include="Assets\Scripts\Collision\Collectable.cs" />
      <Compile Include="Assets\Scripts\Collision\CollisionState.cs" />
+     <Compile Include="Assets\Scripts\Collision\Enemy.cs" />
      <Compile Include="Assets\Scripts\Collision\FallingHazardScripts\FallingHazard.cs" />
      <Compile Include="Assets\Scripts\Collision\FallingHazardScripts\MakeHazardFall.cs" />
+     <Compile Include="Assets\Scripts\Collision\FallingHazardScripts\TriggerHazard.cs" />
      <Compile Include="Assets\Scripts\Collision\FallingHazardScripts\killCoconut.cs" />
      <Compile Include="Assets\Scripts\Collision\LevelEnd.cs" />
      <Compile Include="Assets\Scripts\Collision\Spikes.cs" />

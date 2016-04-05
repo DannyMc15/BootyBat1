@@ -24,7 +24,7 @@ public class InputState : MonoBehaviour {
 
 	public void SetButtonValue(Buttons key, bool value){
         if (!buttonStates.ContainsKey(key))
-            buttonStates.Add(key, new ButtonState());//revisit tutorial and check ai controller vs. player controller
+            buttonStates.Add(key, new ButtonState());
 
 		var state = buttonStates [key];
 
