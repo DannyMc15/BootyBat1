@@ -19,9 +19,12 @@ public class Jump : AbstractBehavior {
 
     private CollisionState cs;
 
+	private Animator animator;
+
 	// Use this for initialization
 	void Start () {
         cs = FindObjectOfType<CollisionState>();
+		animator = GetComponent<Animator> ();
 		audio = GetComponent<AudioSource> ();
 	}
 	
@@ -66,7 +69,12 @@ public class Jump : AbstractBehavior {
         var vel = body2d.velocity;
         lastJumpTime = Time.time;
         body2d.velocity = new Vector2(vel.x, flapSpeed);
+		//ChangeAnimationState (3);
 		//body2d.velocity = new Vector2(vel.x, 5);
     }
+
+	void ChangeAnimationState(int value){
+		animator.SetInteger ("AnimState", value);
+	}
 
 }
