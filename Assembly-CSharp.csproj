@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\Behaviors\Walk.cs" />
      <Compile Include="Assets\Scripts\Behaviors\enemyProjectile.cs" />
      <Compile Include="Assets\Scripts\Behaviors\fireProjectile.cs" />
+     <Compile Include="Assets\Scripts\Breakables.cs" />
      <Compile Include="Assets\Scripts\Collision\Collectable.cs" />
      <Compile Include="Assets\Scripts\Collision\CollisionState.cs" />
      <Compile Include="Assets\Scripts\Collision\Enemy.cs" />
