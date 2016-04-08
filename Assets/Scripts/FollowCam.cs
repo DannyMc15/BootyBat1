@@ -17,10 +17,10 @@ public class FollowCam : MonoBehaviour {
 
 	private BoxCollider2D collider;
 
+
 	void Awake() {
 		S = this;
 		camZ = this.transform.position.z;
-		//collider = this;
 	}
 
 	void Update () {
@@ -29,19 +29,6 @@ public class FollowCam : MonoBehaviour {
 
 		Vector3 destination = poi.transform.position;
 		destination.z = camZ;
-
-		/*if(leftBound.attachedRigidbody.IsTouching(BoxCollider2D collider){
-			print ("touching left or right");
-		}
-
-		if (destination.y == leftBound.offset.y || destination.y == rightBound.offset.y) {
-			//transform.position.x = destination.x;
-			print ("touching left or right");
-		} else if (destination.y == topBound.offset.y || destination.y == bottomBound.offset.y) {
-			//transform.position.y = destination.y;
-			print ("touching top or bottom");
-		} else {*/
-			transform.position = destination;
-		//}
+		transform.position = destination;
 	}
 }
