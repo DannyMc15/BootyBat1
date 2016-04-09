@@ -11,6 +11,16 @@ public class FallingHazard : MonoBehaviour {
 	public float collisionRadius = 10f;
 
 	private int ground = 0;
+	private int counter = 0;
+
+	void Update(){
+		if (counter == 1) {
+			counter++;
+		}
+		if (counter == 10000) {
+			counter = 0;
+		}
+	}
 				
 	void FixedUpdate(){
 				
@@ -31,5 +41,12 @@ public class FallingHazard : MonoBehaviour {
 
 	void killBooty(){
 		Application.LoadLevel (Application.loadedLevel);
+		counter = 1;
+	}
+
+	void OnGUI() {
+		if (counter >0) {
+			GUI.Label (new Rect (250, 10, 100, 20), "TRY AGAIN!");
+		}
 	}
 }

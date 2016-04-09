@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 4f9585bb401ecdd4bb0bddbd0a5bb153
-timeCreated: 1460048183
+guid: be56c4ce931764f6695c173222c8b943
+timeCreated: 1460163668
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -62,9 +62,9 @@ TextureImporter:
     - name: Water Trap_0
       rect:
         serializedVersion: 2
-        x: 23
+        x: 24
         y: 19
-        width: 256
+        width: 254
         height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -72,10 +72,10 @@ TextureImporter:
     - name: Water Trap_1
       rect:
         serializedVersion: 2
-        x: 311
-        y: 14
-        width: 258
-        height: 61
+        x: 312
+        y: 15
+        width: 255
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -92,19 +92,19 @@ TextureImporter:
     - name: Water Trap_3
       rect:
         serializedVersion: 2
-        x: 895
-        y: 14
-        width: 258
-        height: 71
+        x: 896
+        y: 15
+        width: 257
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Water Trap_4
       rect:
         serializedVersion: 2
-        x: 1187
+        x: 1188
         y: 14
-        width: 258
+        width: 257
         height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -112,20 +112,20 @@ TextureImporter:
     - name: Water Trap_5
       rect:
         serializedVersion: 2
-        x: 1465
-        y: 14
-        width: 258
-        height: 73
+        x: 1466
+        y: 15
+        width: 257
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Water Trap_6
       rect:
         serializedVersion: 2
-        x: 1758
-        y: 14
-        width: 258
-        height: 73
+        x: 1760
+        y: 15
+        width: 256
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,9 +142,9 @@ TextureImporter:
     - name: Water Trap_8
       rect:
         serializedVersion: 2
-        x: 2328
+        x: 2330
         y: 14
-        width: 258
+        width: 256
         height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
