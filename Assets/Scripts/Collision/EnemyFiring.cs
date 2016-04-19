@@ -26,7 +26,7 @@ public class EnemyFiring : MonoBehaviour {
 	IEnumerator OnAttack()
 	{
 	
-		print ("FIRE");
+		//print ("FIRE");
 		shootProjectile (new Vector2(xForce, yForce));
 		yield return new WaitForSeconds(attackDelay);
 		StartCoroutine (OnAttack ());
@@ -34,8 +34,8 @@ public class EnemyFiring : MonoBehaviour {
 
 	void shootProjectile(Vector2 direction)
 	{
-		Debug.Log ("DERP");
-		Debug.Log (gameObject.name);
+		//Debug.Log ("DERP");
+//		Debug.Log (gameObject.name);
 		tempObj = (GameObject)Instantiate (projectilePref, transform.position, Quaternion.identity);
 		tempObj.GetComponent<Rigidbody2D> ().AddForce (direction);
 	}
