@@ -6,12 +6,14 @@ public class Spikes : MonoBehaviour {
 	public string targetTag = "Player";
 	public string targetTag2 = "echoBlast";
 	private int counter=0;
+	public AudioClip gameOverSound;
+	AudioSource audio;
 
 	void Update(){
 		if (counter == 1) {
 			counter++;
 		}
-		if (counter == 10000) {
+		if (counter == 200000) {
 			counter = 0;
 		}
 	}
@@ -30,6 +32,7 @@ public class Spikes : MonoBehaviour {
 	void OnGUI() {
 		if (counter >0) {
 			GUI.Label (new Rect (250, 10, 100, 20), "TRY AGAIN!");
+			audio.PlayOneShot(gameOverSound);
 		}
 	}
 }
