@@ -7,7 +7,16 @@ public class Enemy : MonoBehaviour {
 	public string targetTag2 = "echoBlast";
 	public string targetTag3 = "Falling Hazard";
 
+	private bool hitByBlast = false;
+
 	private int counter = 0;
+	private int counter2 = 0;
+
+	private Animator animator;
+
+	void Awake(){;
+		animator = GetComponent<Animator> ();
+	}
 
 	void Update(){
 		if (counter == 1) {
@@ -15,6 +24,15 @@ public class Enemy : MonoBehaviour {
 		}
 		if (counter == 10000) {
 			counter = 0;
+		}
+
+		if (hitByBlast == true) {
+			counter2++;
+		}
+
+		if(counter2==6){
+
+			Destroy (gameObject);
 		}
 	}
 	
@@ -24,11 +42,14 @@ public class Enemy : MonoBehaviour {
 			//counter = 1;
 		}
 		if (target.gameObject.tag == targetTag2) {
-			Destroy (gameObject);
+			animator.SetBool("isKilled", true);
+			counter2=0;
+			hitByBlast=true;
 		}
 
 		if (target.gameObject.tag == targetTag3) {
-			Destroy (gameObject);
+			//Destroy (gameObject);
+			hitByBlast=false;
 		}
 	}
 
