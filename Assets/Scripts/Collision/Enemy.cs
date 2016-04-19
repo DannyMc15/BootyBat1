@@ -20,8 +20,8 @@ public class Enemy : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D target){
 		if (target.gameObject.tag == targetTag) {
-			Application.LoadLevel(Application.loadedLevel);
-			counter = 1;
+			//Application.LoadLevel(Application.loadedLevel);
+			//counter = 1;
 		}
 		if (target.gameObject.tag == targetTag2) {
 			Destroy (gameObject);

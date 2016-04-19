@@ -1,9 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Collision/Spikes.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Managers/PlayerManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Collision/Spikes.cs" Line="17" Column="16" />
-      <File FileName="Assets/Scripts/Behaviors/Jump.cs" Line="46" Column="6" />
+      <File FileName="Assets/Scripts/Managers/PlayerManager.cs" Line="40" Column="20" />
+      <File FileName="Assets/Scripts/Health.cs" Line="50" Column="25" />
+      <File FileName="Assets/Scripts/Behaviors/Jump.cs" Line="26" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

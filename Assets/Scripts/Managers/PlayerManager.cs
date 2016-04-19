@@ -7,7 +7,9 @@ public class PlayerManager : MonoBehaviour {
 	private Walk walkBehavior;
 	private Animator animator;
 
-	private CollisionState cs;
+	private Health health;
+
+	//private CollisionState cs;
 
 	void Awake(){
 		inputState = GetComponent<InputState> ();
@@ -16,20 +18,27 @@ public class PlayerManager : MonoBehaviour {
 	}
 
 	void Start () {
-		cs = FindObjectOfType<CollisionState>();
+		//cs = FindObjectOfType<CollisionState>();
+		health = FindObjectOfType<Health> ();
 	}
 
 	void Update () {
-		if (inputState.absVelX == 0) {
-			ChangeAnimationState(0);
-		}
+		if (health.isInvulnerable == false) { 
 
-		if (inputState.absVelX > 0) {
-			ChangeAnimationState(1);
-		}
+			if (inputState.absVelX == 0) {
+				ChangeAnimationState (0);
+			}
 
-		if (inputState.absVelY > 0) {
-			ChangeAnimationState(2);
+			if (inputState.absVelX > 0) {
+				ChangeAnimationState (1);
+			}
+
+			if (inputState.absVelY > 0) {
+				ChangeAnimationState (2);
+			}
+		} else if (health.isInvulnerable == true) {
+			print ("OUCH!");
+			ChangeAnimationState(4);
 		}
 	}
 

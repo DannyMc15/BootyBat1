@@ -12,7 +12,7 @@ public class Health : MonoBehaviour {
 	public bool isInvulnerable = false;
 	
 	public string targetTag = "Enemy";
-	public string targetTag2 = "FallingHazard";
+	public string targetTag2 = "Falling Hazard";
 	public string targetTag3 = "Projectile";
 	
 	void Update(){

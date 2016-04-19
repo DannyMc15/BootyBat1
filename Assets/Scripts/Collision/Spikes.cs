@@ -32,7 +32,7 @@ public class Spikes : MonoBehaviour {
 	void OnGUI() {
 		if (counter >0) {
 			GUI.Label (new Rect (250, 10, 100, 20), "TRY AGAIN!");
-			audio.PlayOneShot(gameOverSound);
+//			audio.PlayOneShot(gameOverSound);
 		}
 	}
 }

@@ -41,7 +41,7 @@ public class Jump : AbstractBehavior {
 		} else {
             if(canJump && holdTime < .1f && Time.time - lastJumpTime > jumpDelay /*&& jumpsRemaining > 0*/){
                 OnFlap();
-				print("flap");
+				//print("flap");
 				if(clipCounter==0){
 					audio.PlayOneShot(flapSound1);
 					clipCounter++;

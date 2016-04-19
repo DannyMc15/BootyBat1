@@ -31,7 +31,7 @@ public class FallingHazard : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D target){
 		if (target.gameObject.tag == targetTag && ground == 0) {
-			killBooty ();
+			//killBooty ();
 		}
 
 		if (target.gameObject.tag == targetGround) {
@@ -39,7 +39,7 @@ public class FallingHazard : MonoBehaviour {
 		}
 	}
 
-	void killBooty(){
+	/*void killBooty(){
 		Application.LoadLevel (Application.loadedLevel);
 		counter = 1;
 	}
@@ -48,5 +48,5 @@ public class FallingHazard : MonoBehaviour {
 		if (counter >0) {
 			GUI.Label (new Rect (250, 10, 100, 20), "TRY AGAIN!");
 		}
-	}
+	}*/
 }

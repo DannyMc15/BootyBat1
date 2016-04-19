@@ -10,7 +10,7 @@ public class TriggerHazard : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D target){
 		if (target.gameObject.tag == targetTag) {
 			print ("FALL!!!");
-			body2d.WakeUp();
+			//body2d.WakeUp();
 		}
 	}
 }
