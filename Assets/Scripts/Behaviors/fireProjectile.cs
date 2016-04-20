@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class fireProjectile : AbstractBehavior {
 
@@ -10,11 +11,19 @@ public class fireProjectile : AbstractBehavior {
 	public float debugRadius = 3f;
 
 	private float timeElapsed = 0f;
+	private GameManager doShoot;
+
+	public GameObject shotsNumberRef;
+
+	void Start(){
+		doShoot = FindObjectOfType<GameManager> ();
+		shotsNumberRef = GameObject.Find ("shotsNumber");
+	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (projectilePrefab != null) {
+		if (projectilePrefab != null &&doShoot.canShoot>0) {
 
 			var canFire=inputState.GetButtonValue(inputButtons[0]);
 
@@ -40,6 +49,8 @@ public class fireProjectile : AbstractBehavior {
 	public void CreateProjectile(Vector2 pos){
 		var clone = Instantiate (projectilePrefab, pos, Quaternion.identity) as GameObject;
 		clone.transform.localScale = transform.localScale;
+		doShoot.canShoot--;
+		shotsNumberRef.GetComponent<Text> ().text = doShoot.canShoot.ToString ();
 	}
 
 	void OnDrawGizmos(){
