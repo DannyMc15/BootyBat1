@@ -36,6 +36,7 @@ public class echoBlast : MonoBehaviour {
 		if (Time.time - startTime > 2) {
 			//print ("5");
 			//Destroy (gameObject);
+			BlowUp ();
 		}
 		if (stopped == true) {
 			finalAnimation++;

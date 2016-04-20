@@ -15,6 +15,7 @@ public class skeleton : MonoBehaviour {
 	//private int counter = 0;
 	private int finalAnimCount = 0;
 	private int animationCounter = 0;
+	private bool isWalking = true;
 	
 	private Animator animator;
 	
@@ -23,9 +24,17 @@ public class skeleton : MonoBehaviour {
 	}
 	
 	void Update(){
+
+		//Change Animations and Swing Sword
 		animationCounter++;
-		if (animationCounter >= 20) {//swing sword
-			//ChangeAnimationState(1);
+		if (animationCounter >= 60 &&finalAnimCount==0) {//swing sword
+			isWalking=false;
+			ChangeAnimationState(1);
+			animationCounter=0;
+		}
+		if (animationCounter >=10&&animationCounter<60 &&finalAnimCount==0) {//back to walking
+			isWalking=true;
+			ChangeAnimationState(0);
 		}
 
 		/*if (counter == 1) {
@@ -34,25 +43,26 @@ public class skeleton : MonoBehaviour {
 		if (counter == 10000) {
 			counter = 0;
 		}*/
-		
+
+		//Kill Him
 		if (hitByBlast == true) {
 			finalAnimCount++;
 		}
-		
-		if(finalAnimCount==6){
+		if(finalAnimCount==20){
 			Destroy (gameObject);
 		}
 
+		//Change Direction He's Walking
 		distCounter++;
-		if (distCounter < 100) {
-			print ("you should be walking");
+		if (distCounter < 100&&finalAnimCount==0&&isWalking==true) {
 			transform.Translate (new Vector3 (moveSpeed, 0, 0) * Time.deltaTime);
-		} else if (distCounter == 100) {
+		} else if (distCounter == 100&&finalAnimCount==0) {
+			print ("change direction");
 			moveSpeed *= -1;
 			distCounter = 0;
 		}
 
-
+		//Change Direction He's Facing
 		if(moveSpeed > 0){
 			transform.localScale = new Vector3(1, 1, 1);
 		}
@@ -62,13 +72,13 @@ public class skeleton : MonoBehaviour {
 
 	}
 	
-	/*void OnTriggerEnter2D(Collider2D target){
+	void OnTriggerEnter2D(Collider2D target){
 		if (target.gameObject.tag == targetTag) {
 			//Application.LoadLevel(Application.loadedLevel);
 			//counter = 1;
 		}
 		if (target.gameObject.tag == targetTag2) {
-			animator.SetBool("isKilled", true);
+			ChangeAnimationState(2);
 			finalAnimCount=0;
 			hitByBlast=true;
 		}
@@ -77,7 +87,7 @@ public class skeleton : MonoBehaviour {
 			//Destroy (gameObject);
 			//hitByBlast=false;
 		}
-	}*/
+	}
 	
 	/*void OnGUI() {
 		if (counter >0) {
