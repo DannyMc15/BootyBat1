@@ -57,7 +57,6 @@ public class skeleton : MonoBehaviour {
 		if (distCounter < 100&&finalAnimCount==0&&isWalking==true) {
 			transform.Translate (new Vector3 (moveSpeed, 0, 0) * Time.deltaTime);
 		} else if (distCounter == 100&&finalAnimCount==0) {
-			print ("change direction");
 			moveSpeed *= -1;
 			distCounter = 0;
 		}
