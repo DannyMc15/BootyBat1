@@ -1,9 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/echoBlast.cs">
     <Files>
-      <File FileName="Assets/GameManager.cs" Line="54" Column="8" />
-      <File FileName="Assets/Scripts/Health.cs" Line="30" Column="42" />
+      <File FileName="Assets/Scripts/shootingArrow.cs" Line="15" Column="41" />
+      <File FileName="Assets/Scripts/echoBlast.cs" Line="57" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

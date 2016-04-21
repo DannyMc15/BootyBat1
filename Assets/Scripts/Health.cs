@@ -35,7 +35,7 @@ public class Health : MonoBehaviour {
 			gameManage.health--;
 			gameManage.healthNumberRef.GetComponent<Text> ().text = health.ToString ();
 			invincibleTimer = 0;
-			print("HIT!");
+			//print("HIT!");
 		}
 		if (health == 0)
 		{
@@ -47,10 +47,6 @@ public class Health : MonoBehaviour {
 		if (health == 0)
 		{
 			print("Health is zero");
-		}
-		if (target.gameObject.tag == targetTag)
-		{
-			print("Tag is registered");
 		}
 		if (lives == 0) {//add gameover scene here
 			//Application.LoadLevel(GameOverScreen);

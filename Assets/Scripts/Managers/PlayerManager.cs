@@ -37,7 +37,7 @@ public class PlayerManager : MonoBehaviour {
 				ChangeAnimationState (2);
 			}
 		} else if (health.isInvulnerable == true) {
-			print ("OUCH!");
+			//print ("OUCH!");
 			ChangeAnimationState(4);
 		}
 	}

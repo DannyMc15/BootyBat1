@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour {
 		scoreTextRef.GetComponent<Text> ().text = score.ToString (); //Sets the score to the score
 		canShoot++;
 		shotsNumberRef.GetComponent<Text> ().text = canShoot.ToString ();
-		print (canShoot);
+		//print (canShoot);
 		healthNumberRef.GetComponent<Text> ().text = health.ToString ();
 		livesNumberRef.GetComponent<Text> ().text = health.ToString ();
 

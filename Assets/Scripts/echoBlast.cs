@@ -48,13 +48,13 @@ public class echoBlast : MonoBehaviour {
 	
 	void OnCollisionEnter2D(Collision2D target){
 		if (bounces == 1) {
-			print ("collision");
+			//print ("collision");
 			BlowUp();
 		}
 	}
 
 	void BlowUp(){
-		animator.SetBool("Active", false);
+		//animator.SetBool("Active", false);
 		stopped=true;
 		body2d.velocity = new Vector2(0,0);
 	}
