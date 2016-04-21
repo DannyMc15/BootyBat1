@@ -8,9 +8,21 @@ public class EnemyProjectile : MonoBehaviour {
 		Debug.Log (target.gameObject.name);
 		Destroy (gameObject);
 	}*/
+	private bool hasShot = false;
+	private int count;
+
+	void Update(){
+		count++;
+		if (count >= 5) {
+			hasShot=true;
+		}
+	}
 
 	void OnCollisionEnter2D(){
-		Destroy (gameObject);
+		if (hasShot == true) {
+			Destroy (gameObject);
+			hasShot = false;
+		}
 	}
 
 }

@@ -86,6 +86,10 @@ public class hermyMovement : MonoBehaviour {
 			}
 	}
 
+	void OnCollisionEnter2D(){
+
+	}
+
 	void OnGUI() {
 		if (counter >0) {
 			GUI.Label (new Rect (250, 10, 100, 200), "TRY AGAIN!");

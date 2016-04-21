@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Breakables : MonoBehaviour {
 
-    public string targetTag = "echoBlastTarget";
+    public string targetTag = "echoBlast";
 
     void OnCollisionEnter2D(Collision2D target)
     {

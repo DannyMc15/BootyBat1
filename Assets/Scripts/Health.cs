@@ -8,6 +8,7 @@ public class Health : MonoBehaviour {
 	public float seconds = 1.0f;
 	
 	public int health = 3; // Amount of health
+	public int lives = 3;
 	public int invincibleTimer = 500;
 	
 	public bool isInvulnerable = false;
@@ -25,7 +26,9 @@ public class Health : MonoBehaviour {
 	
 	void OnCollisionEnter2D(Collision2D target)
 	{
-		if(target.gameObject.tag == targetTag && isInvulnerable == false)
+		if(target.gameObject.tag == targetTag && isInvulnerable == false
+		   ||target.gameObject.tag==targetTag2 && isInvulnerable == false
+			||target.gameObject.tag==targetTag3 && isInvulnerable == false)
 		{
 			StartCoroutine(InvulnerableDelay());
 			health--;
@@ -36,8 +39,8 @@ public class Health : MonoBehaviour {
 		}
 		if (health == 0)
 		{
+			lives--;
 			Application.LoadLevel(Application.loadedLevel); 
-			print("DEAD!");
 		}
 		if (health == 0)
 		{
@@ -46,6 +49,9 @@ public class Health : MonoBehaviour {
 		if (target.gameObject.tag == targetTag)
 		{
 			print("Tag is registered");
+		}
+		if (lives == 0) {//add gameover scene here
+			//Application.LoadLevel(GameOverScreen);
 		}
 		
 	}

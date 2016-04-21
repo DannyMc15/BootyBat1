@@ -78,6 +78,7 @@
      <Compile Include="Assets\Scripts\TimeManager.cs" />
      <Compile Include="Assets\Scripts\echoBlast.cs" />
      <Compile Include="Assets\Scripts\hermyMovement.cs" />
+     <Compile Include="Assets\Scripts\shootingArrow.cs" />
      <Compile Include="Assets\Scripts\skeleton.cs" />
      <Compile Include="Assets\Scripts\spitPearl.cs" />
      <Compile Include="Assets\Scripts\tileBlock.cs" />
