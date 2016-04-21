@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\Collision\FallingHazardScripts\MakeHazardFall.cs" />
      <Compile Include="Assets\Scripts\Collision\FallingHazardScripts\TriggerHazard.cs" />
      <Compile Include="Assets\Scripts\Collision\FallingHazardScripts\killCoconut.cs" />
+     <Compile Include="Assets\Scripts\Collision\FallingHazardScripts\stalagmite.cs" />
      <Compile Include="Assets\Scripts\Collision\LevelEnd.cs" />
      <Compile Include="Assets\Scripts\Collision\Spikes.cs" />
      <Compile Include="Assets\Scripts\Collision\enemyProjectile.cs" />
@@ -79,6 +80,7 @@
      <Compile Include="Assets\Scripts\hermyMovement.cs" />
      <Compile Include="Assets\Scripts\skeleton.cs" />
      <Compile Include="Assets\Scripts\spitPearl.cs" />
+     <Compile Include="Assets\Scripts\tileBlock.cs" />
      <Compile Include="Assets\Scripts\tilingGround.cs" />
      <None Include="Assets\booter Font\Boot THIS.txt" />
      <None Include="Assets\booter Font\readme.txt" />

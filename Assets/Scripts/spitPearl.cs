@@ -38,6 +38,10 @@ public class spitPearl : MonoBehaviour {
 			ground = 1;
 		}
 	}
+
+	void OnTriggerEnter2D(){
+		Destroy (gameObject);
+	}
 	
 	void killBooty(){
 		Application.LoadLevel (Application.loadedLevel);

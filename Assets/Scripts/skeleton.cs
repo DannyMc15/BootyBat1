@@ -27,12 +27,12 @@ public class skeleton : MonoBehaviour {
 
 		//Change Animations and Swing Sword
 		animationCounter++;
-		if (animationCounter >= 60 &&finalAnimCount==0) {//swing sword
+		if (animationCounter >= 150 &&finalAnimCount==0) {//swing sword
 			isWalking=false;
 			ChangeAnimationState(1);
 			animationCounter=0;
 		}
-		if (animationCounter >=10&&animationCounter<60 &&finalAnimCount==0) {//back to walking
+		if (animationCounter >=40&&animationCounter<60 &&finalAnimCount==0) {//back to walking
 			isWalking=true;
 			ChangeAnimationState(0);
 		}
@@ -77,6 +77,7 @@ public class skeleton : MonoBehaviour {
 			//counter = 1;
 		}
 		if (target.gameObject.tag == targetTag2) {
+			gameObject.tag="Untagged";
 			ChangeAnimationState(2);
 			finalAnimCount=0;
 			hitByBlast=true;

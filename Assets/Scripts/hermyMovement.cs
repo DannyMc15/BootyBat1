@@ -5,6 +5,7 @@ public class hermyMovement : MonoBehaviour {
 	
 	public float moveSpeed;
 	public int distCounter = 0;
+	public int distancetoWalk = 100;
 
 	public string targetTag = "Player";
 	public string targetTag2 = "echoBlast";
@@ -31,10 +32,10 @@ public class hermyMovement : MonoBehaviour {
 	void Update () {
 		
 		distCounter++;
-		if (distCounter < 100&&isWalking==true) {
+		if (distCounter < distancetoWalk&&isWalking==true) {
 			transform.Translate (new Vector3 (moveSpeed, 0, 0) * Time.deltaTime);
 			//transform.localScale = new Vector3 (1, 1, 1);
-		} else if (distCounter == 100) {
+		} else if (distCounter == distancetoWalk) {
 			moveSpeed *= -1;
 			distCounter = 0;
 			//transform.localScale = new Vector3 (-1, 1, 1);
@@ -72,6 +73,7 @@ public class hermyMovement : MonoBehaviour {
 				//counter = 1;
 			}
 			if (target.gameObject.tag == targetTag2) {
+				gameObject.tag="Untagged";
 				isWalking=false;
 				hermyAnimator.SetBool("killed", true);
 				counter2=0;

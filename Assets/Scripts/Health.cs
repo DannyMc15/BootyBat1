@@ -1,6 +1,7 @@
 ﻿
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour {
 	
@@ -14,9 +15,11 @@ public class Health : MonoBehaviour {
 	public string targetTag = "Enemy";
 	public string targetTag2 = "Falling Hazard";
 	public string targetTag3 = "Projectile";
+
+	private GameManager gameManage;
 	
-	void Update(){
-		
+	void Start(){
+		gameManage = FindObjectOfType<GameManager> ();
 	}
 	
 	
@@ -26,6 +29,8 @@ public class Health : MonoBehaviour {
 		{
 			StartCoroutine(InvulnerableDelay());
 			health--;
+			gameManage.health--;
+			gameManage.healthNumberRef.GetComponent<Text> ().text = health.ToString ();
 			invincibleTimer = 0;
 			print("HIT!");
 		}

@@ -42,15 +42,11 @@ public class Enemy : MonoBehaviour {
 			//Application.LoadLevel(Application.loadedLevel);
 			//counter = 1;
 		}
-		if (target.gameObject.tag == targetTag2) {
+		if (target.gameObject.tag == targetTag2||target.gameObject.tag==targetTag3) {
+			gameObject.tag="Untagged";
 			animator.SetBool("isKilled", true);
 			counter2=0;
 			hitByBlast=true;
-		}
-
-		if (target.gameObject.tag == targetTag3) {
-			//Destroy (gameObject);
-			hitByBlast=false;
 		}
 	}
 

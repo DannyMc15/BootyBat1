@@ -6,16 +6,37 @@ public class GameManager : MonoBehaviour {
 
 	public int score;
 	public int canShoot;
+	public int health;
+	public int timer;
+
+	private int oneSecond = 0;
+
 	public GameObject scoreTextRef;	//This references the score text, so we can change it later
 	public GameObject shotsNumberRef;
+	public GameObject healthNumberRef;
+	public GameObject timerNumberRef;
 	// Use this for initialization
+
 	void Start () 
 	{
 		scoreTextRef = GameObject.Find ("scoreText");
 		shotsNumberRef = GameObject.Find ("shotsNumber");
+		healthNumberRef = GameObject.Find ("HealthNumber");
+		timerNumberRef = GameObject.Find ("TimerNumber");
 		score = 0;
 		canShoot = 0;
+		timer = 100;
+		health = 3;
 		updateScore ();	//Calls the update score function
+	}
+
+	void Update(){
+		oneSecond++;
+		if (oneSecond == 20) {
+			timer--;
+			timerNumberRef.GetComponent<Text> ().text = timer.ToString ();
+			oneSecond=0;
+		}
 	}
 
 	//This function updates the score
@@ -25,6 +46,7 @@ public class GameManager : MonoBehaviour {
 		canShoot++;
 		shotsNumberRef.GetComponent<Text> ().text = canShoot.ToString ();
 		print (canShoot);
-	}
+		healthNumberRef.GetComponent<Text> ().text = health.ToString ();
 
+	}
 }
