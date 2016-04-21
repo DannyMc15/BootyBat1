@@ -10,12 +10,6 @@ public class FollowCam : MonoBehaviour {
 
 	public GameObject poi;
 	public float camZ;
-	public BoxCollider2D bottomBound;
-	public BoxCollider2D topBound;
-	public BoxCollider2D leftBound;
-	public BoxCollider2D rightBound;
-
-	private BoxCollider2D collider;
 
 
 	void Awake() {
@@ -27,8 +21,16 @@ public class FollowCam : MonoBehaviour {
 		if (poi == null)
 			return;
 
-		Vector3 destination = poi.transform.position;
-		destination.z = camZ;
-		transform.position = destination;
+		if (poi.transform.position.x <= -30) {
+			Vector3 destination = poi.transform.position;
+			destination.z = camZ;
+			transform.position = destination;
+		}
+
+		if (poi.transform.position.x >= -30) {
+			Vector3 destination = poi.transform.position;
+			destination.z = camZ;
+			transform.position = destination;
+		}
 	}
 }
