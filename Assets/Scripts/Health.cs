@@ -40,6 +40,8 @@ public class Health : MonoBehaviour {
 		if (health == 0)
 		{
 			lives--;
+			gameManage.lives--;
+			gameManage.livesNumberRef.GetComponent<Text> ().text = health.ToString ();
 			Application.LoadLevel(Application.loadedLevel); 
 		}
 		if (health == 0)

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
 	public int canShoot;
 	public int health;
 	public int timer;
+	public int lives;
 
 	private int oneSecond = 0;
 
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject shotsNumberRef;
 	public GameObject healthNumberRef;
 	public GameObject timerNumberRef;
+	public GameObject livesNumberRef;
 	// Use this for initialization
 
 	void Start () 
@@ -23,10 +25,12 @@ public class GameManager : MonoBehaviour {
 		shotsNumberRef = GameObject.Find ("shotsNumber");
 		healthNumberRef = GameObject.Find ("HealthNumber");
 		timerNumberRef = GameObject.Find ("TimerNumber");
+		livesNumberRef = GameObject.Find ("livesNumber");
 		score = 0;
 		canShoot = 0;
 		timer = 100;
 		health = 3;
+		lives = 3;
 		updateScore ();	//Calls the update score function
 	}
 
@@ -47,6 +51,7 @@ public class GameManager : MonoBehaviour {
 		shotsNumberRef.GetComponent<Text> ().text = canShoot.ToString ();
 		print (canShoot);
 		healthNumberRef.GetComponent<Text> ().text = health.ToString ();
+		livesNumberRef.GetComponent<Text> ().text = health.ToString ();
 
 	}
 }
