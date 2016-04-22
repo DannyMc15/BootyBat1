@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c3a90e3fbfd664ca6a49205f364a1355
-timeCreated: 1461251145
+timeCreated: 1461294615
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -72,7 +72,7 @@ TextureImporter:
         width: 80
         height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: caveTreasures_2
       rect:
@@ -80,10 +80,10 @@ TextureImporter:
         x: 0
         y: 15
         width: 80
-        height: 62
+        height: 58
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 23}
+      border: {x: 0, y: 0, z: 0, w: 16}
     - name: caveTreasures_3
       rect:
         serializedVersion: 2
@@ -92,7 +92,7 @@ TextureImporter:
         width: 80
         height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

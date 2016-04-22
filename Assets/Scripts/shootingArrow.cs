@@ -22,6 +22,7 @@ public class shootingArrow : MonoBehaviour {
 		if (distance <= 180) {
 			body2d.gravityScale=gravityChange;
 			canBreak=true;
+			body2d.constraints = RigidbodyConstraints2D.None;
 		}
 	}
 	
