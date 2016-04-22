@@ -3,10 +3,15 @@ using System.Collections;
 
 public class EnemyFiring : MonoBehaviour {
 
+	public GameObject player;
+
 	public float attackDelay = 1f;
 	public float xForce = 1f;
 	public float yForce = 1f;
 	public GameObject projectilePref; //Set this in the inspecctor
+
+	private float distance;
+	private bool start=false;
 
 
 	private GameObject tempObj;//We use this to reference the instantiated projectile
@@ -19,13 +24,11 @@ public class EnemyFiring : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () 
-	{
-		
+	void Update () {
 	}
-	IEnumerator OnAttack()
-	{
-	
+
+
+	IEnumerator OnAttack(){
 		//print ("FIRE");
 		shootProjectile (new Vector2(xForce, yForce));
 		yield return new WaitForSeconds(attackDelay);

@@ -7,6 +7,7 @@ public class shootingArrow : MonoBehaviour {
 	private float distance;
 	private Rigidbody2D body2d;
 	public int gravityChange= -20;
+	public int howFar = 180;
 	
 	private bool canBreak = false;
 	
@@ -19,15 +20,16 @@ public class shootingArrow : MonoBehaviour {
 	void Update () {
 		distance = Vector3.Distance (player.transform.position, gameObject.transform.position);
 		//print (distance);
-		if (distance <= 180) {
+		if (distance <= howFar) {
 			body2d.gravityScale=gravityChange;
 			canBreak=true;
 			body2d.constraints = RigidbodyConstraints2D.None;
 		}
 	}
 	
-	void OnCollisionEnter2D(){
-		if(canBreak==true)
+	void OnCollisionEnter2D(Collision2D target){
+		if (canBreak == true) {
 			Destroy (gameObject);
+		}
 	}
 }
