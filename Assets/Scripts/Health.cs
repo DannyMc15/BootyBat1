@@ -42,7 +42,7 @@ public class Health : MonoBehaviour {
 			//gameManage.lives--;
 			//gameManage.livesNumberRef.GetComponent<Text> ().text = health.ToString ();
 			//PlayerPrefs.SetInt("LastScore", gameManage.score);
-			Application.LoadLevel(Application.loadedLevel); 
+			Application.LoadLevel("GAME_OVER"); 
 		}
 		//if (lives == 0) {//add gameover scene here
 			//Application.LoadLevel(GameOverScreen);

@@ -92,6 +92,7 @@
      <Compile Include="Assets\Scripts\startMenu.cs" />
      <Compile Include="Assets\Scripts\tileBlock.cs" />
      <Compile Include="Assets\Scripts\tilingGround.cs" />
+     <Compile Include="Assets\gameStart.cs" />
      <Compile Include="Assets\quitScript.cs" />
      <None Include="Assets\booter Font\Boot THIS.txt" />
      <None Include="Assets\booter Font\readme.txt" />
