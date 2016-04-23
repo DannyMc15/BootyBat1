@@ -7,12 +7,12 @@ public class finalTreasure : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		Invoke ("KillIt",5.0F);
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if (counter == 50)
-			Destroy (gameObject);
+
+	void KillIt(){
+		Destroy (gameObject);
 	}
 }

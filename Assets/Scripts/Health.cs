@@ -8,7 +8,7 @@ public class Health : MonoBehaviour {
 	public float seconds = 1.0f;
 	
 	public int health = 3; // Amount of health
-	public int lives = 3;
+	//public int lives = 3;
 	public int invincibleTimer = 500;
 	
 	public bool isInvulnerable = false;
@@ -37,20 +37,16 @@ public class Health : MonoBehaviour {
 			invincibleTimer = 0;
 			//print("HIT!");
 		}
-		if (health == 0)
-		{
-			lives--;
-			gameManage.lives--;
-			gameManage.livesNumberRef.GetComponent<Text> ().text = health.ToString ();
+		if (health == 0){
+			//lives--;
+			//gameManage.lives--;
+			//gameManage.livesNumberRef.GetComponent<Text> ().text = health.ToString ();
+			//PlayerPrefs.SetInt("LastScore", gameManage.score);
 			Application.LoadLevel(Application.loadedLevel); 
 		}
-		if (health == 0)
-		{
-			print("Health is zero");
-		}
-		if (lives == 0) {//add gameover scene here
+		//if (lives == 0) {//add gameover scene here
 			//Application.LoadLevel(GameOverScreen);
-		}
+		//}
 		
 	}
 	

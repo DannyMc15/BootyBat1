@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
 	public int canShoot;
 	public int health;
 	public int timer;
-	public int lives;
+	//public int lives;
 
 	private int oneSecond = 0;
 
@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject shotsNumberRef;
 	public GameObject healthNumberRef;
 	public GameObject timerNumberRef;
-	public GameObject livesNumberRef;
+	//public GameObject livesNumberRef;
 	// Use this for initialization
 
 	void Start () 
@@ -25,33 +25,41 @@ public class GameManager : MonoBehaviour {
 		shotsNumberRef = GameObject.Find ("shotsNumber");
 		healthNumberRef = GameObject.Find ("HealthNumber");
 		timerNumberRef = GameObject.Find ("TimerNumber");
-		livesNumberRef = GameObject.Find ("livesNumber");
-		score = 0;
+		//livesNumberRef = GameObject.Find ("livesNumber");
+		//score = 0;
+		score = PlayerPrefs.GetInt ("LastScore");
 		canShoot = 0;
 		timer = 100;
 		health = 3;
-		lives = 3;
+		//lives = 3;
 		updateScore ();	//Calls the update score function
+		InvokeRepeating ("lowerTime", 2, 2.0F);
 	}
 
-	void Update(){
-		oneSecond++;
-		if (oneSecond == 20) {
-			timer--;
-			timerNumberRef.GetComponent<Text> ().text = timer.ToString ();
-			oneSecond=0;
-		}
+	//void Update(){
+	//	oneSecond++;
+	//	if (oneSecond == 20) {
+	//		timer--;
+	//		timerNumberRef.GetComponent<Text> ().text = timer.ToString ();
+		//	oneSecond=0;
+		//}
+	//}
+
+	void lowerTime() {
+		timer--;
+		timerNumberRef.GetComponent<Text> ().text = timer.ToString ();
 	}
 
 	//This function updates the score
 	public void updateScore()
 	{
 		scoreTextRef.GetComponent<Text> ().text = score.ToString (); //Sets the score to the score
+		PlayerPrefs.SetInt ("LastScore", score);
 		canShoot++;
 		shotsNumberRef.GetComponent<Text> ().text = canShoot.ToString ();
 		//print (canShoot);
 		healthNumberRef.GetComponent<Text> ().text = health.ToString ();
-		livesNumberRef.GetComponent<Text> ().text = health.ToString ();
+		//livesNumberRef.GetComponent<Text> ().text = health.ToString ();
 
 	}
 }

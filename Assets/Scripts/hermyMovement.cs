@@ -14,8 +14,8 @@ public class hermyMovement : MonoBehaviour {
 	private bool hitByBlast = false;
 	private bool isWalking = true;
 	
-	private int counter = 0;
-	private int counter2 = 0;
+	//private int counter = 0;
+	//private int counter2 = 0;
 	
 	private Animator hermyAnimator;
 
@@ -34,40 +34,33 @@ public class hermyMovement : MonoBehaviour {
 		distCounter++;
 		if (distCounter < distancetoWalk&&isWalking==true) {
 			transform.Translate (new Vector3 (moveSpeed, 0, 0) * Time.deltaTime);
+			//transform.localScale = new Vector3(1, 1, 1);
 			//transform.localScale = new Vector3 (1, 1, 1);
 		} else if (distCounter == distancetoWalk) {
 			moveSpeed *= -1;
 			distCounter = 0;
+			//transform.localScale = new Vector3(-1, 1, 1);
 			//transform.localScale = new Vector3 (-1, 1, 1);
 		}
-		if(moveSpeed > 0)
-		{
+
+		if(moveSpeed > 0){
 			transform.localScale = new Vector3(1, 1, 1);
-		}
-		else
-		{
+		}else{
 			transform.localScale = new Vector3(-1, 1, 1);
 		}
 
-		if (counter == 1) {
-			counter++;
-		}
-		if (counter == 10000) {
-			counter = 0;
-		}
-		
+		//if (counter == 1) {
+		//	counter++;
+		//}
+		//if (counter == 10000) {
+		//	counter = 0;
+		//}
 		if (hitByBlast == true) {
-			counter2++;
-		}
-		
-		if(counter2==20){
-			
-			Destroy (gameObject);
+			Invoke ("killIt", 0.6F);
 		}
 	}
 	
-	void OnCollisionEnter2D(Collision2D target)
-	{
+	void OnCollisionEnter2D(Collision2D target){
 			if (target.gameObject.tag == targetTag) {
 				//Application.LoadLevel(Application.loadedLevel);
 				//counter = 1;
@@ -76,7 +69,7 @@ public class hermyMovement : MonoBehaviour {
 				gameObject.tag="Untagged";
 				isWalking=false;
 				hermyAnimator.SetBool("killed", true);
-				counter2=0;
+				//counter2=0;
 				hitByBlast=true;
 			}
 			
@@ -90,11 +83,8 @@ public class hermyMovement : MonoBehaviour {
 
 	}
 
-	void OnGUI() {
-		if (counter >0) {
-			GUI.Label (new Rect (250, 10, 100, 200), "TRY AGAIN!");
-		}
+	void killIt() {
+		Destroy(gameObject);
 	}
-	
 	
 }
