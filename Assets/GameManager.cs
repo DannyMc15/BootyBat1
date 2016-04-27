@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour {
 		//score = 0;
 		score = PlayerPrefs.GetInt ("LastScore");
 		canShoot = 0;
-		timer = 100;
+		timer = 50;
 		health = 3;
 		//lives = 3;
 		updateScore ();	//Calls the update score function
@@ -48,6 +48,9 @@ public class GameManager : MonoBehaviour {
 	void lowerTime() {
 		timer--;
 		timerNumberRef.GetComponent<Text> ().text = timer.ToString ();
+		if (timer == 0) {
+			Application.LoadLevel("GAME_OVER");
+		}
 	}
 
 	//This function updates the score

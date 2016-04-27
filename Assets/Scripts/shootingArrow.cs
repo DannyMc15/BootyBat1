@@ -6,7 +6,7 @@ public class shootingArrow : MonoBehaviour {
 	public GameObject player;
 	private float distance;
 	private Rigidbody2D body2d;
-	public int gravityChange= -20;
+	public int gravityChange= -40;
 	public int howFar = 180;
 	
 	private bool canBreak = false;

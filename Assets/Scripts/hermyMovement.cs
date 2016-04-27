@@ -6,6 +6,7 @@ public class hermyMovement : MonoBehaviour {
 	public float moveSpeed;
 	public int distCounter = 0;
 	public int distancetoWalk = 100;
+	public GameManager gameManagerRef;
 
 	public string targetTag = "Player";
 	public string targetTag2 = "echoBlast";
@@ -25,11 +26,11 @@ public class hermyMovement : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		
+		gameManagerRef = GameObject.Find ("GameManager").GetComponent<GameManager> ();	//on start, get reference
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		
 		distCounter++;
 		if (distCounter < distancetoWalk&&isWalking==true) {
@@ -71,6 +72,7 @@ public class hermyMovement : MonoBehaviour {
 				hermyAnimator.SetBool("killed", true);
 				//counter2=0;
 				hitByBlast=true;
+				addPoints();
 			}
 			
 			if (target.gameObject.tag == targetTag3) {
@@ -81,6 +83,13 @@ public class hermyMovement : MonoBehaviour {
 
 	void OnCollisionEnter2D(){
 
+	}
+
+	public void addPoints()
+	{
+		gameManagerRef.score += 10;
+		gameManagerRef.updateScore ();
+		
 	}
 
 	void killIt() {

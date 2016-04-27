@@ -21,16 +21,19 @@ public class FollowCam : MonoBehaviour {
 		if (poi == null)
 			return;
 
-		if (poi.transform.position.x <= -30) {
+		/*if (poi.transform.position.x <= -40) {
 			Vector3 destination = poi.transform.position;
-			destination.z = camZ;
-			transform.position = destination;
-		}
+			//destination.z = camZ;
+			Vector3 sidemove = new Vector3 (-40, poi.transform.position.y, poi.transform.position.z);
+			destination.z=camZ;
+			//transform.position = destination;
+			transform.position = sidemove;
+		}*/
 
-		if (poi.transform.position.x >= -30) {
+		//if (poi.transform.position.x >= -30) {
 			Vector3 destination = poi.transform.position;
 			destination.z = camZ;
 			transform.position = destination;
-		}
+		//}
 	}
 }
