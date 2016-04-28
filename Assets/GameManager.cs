@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour {
 	void lowerTime() {
 		timer--;
 		timerNumberRef.GetComponent<Text> ().text = timer.ToString ();
-		if (timer == 0) {
+		if (timer == 0 && Application.loadedLevelName != "START") {
 			Application.LoadLevel("GAME_OVER");
 		}
 	}

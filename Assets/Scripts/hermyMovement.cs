@@ -62,10 +62,10 @@ public class hermyMovement : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter2D(Collision2D target){
-			if (target.gameObject.tag == targetTag) {
+			//if (target.gameObject.tag == targetTag) {
 				//Application.LoadLevel(Application.loadedLevel);
 				//counter = 1;
-			}
+			//}
 			if (target.gameObject.tag == targetTag2) {
 				gameObject.tag="Untagged";
 				isWalking=false;
@@ -77,12 +77,8 @@ public class hermyMovement : MonoBehaviour {
 			
 			if (target.gameObject.tag == targetTag3) {
 				//Destroy (gameObject);
-				hitByBlast=false;
+				hitByBlast=true;
 			}
-	}
-
-	void OnCollisionEnter2D(){
-
 	}
 
 	public void addPoints()

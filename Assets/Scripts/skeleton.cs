@@ -9,6 +9,7 @@ public class skeleton : MonoBehaviour {
 	public string targetTag = "Player";
 	public string targetTag2 = "echoBlast";
 	public string targetTag3 = "Falling Hazard";
+	public GameManager gameManagerRef;
 	
 	private bool hitByBlast = false;
 	
@@ -22,8 +23,12 @@ public class skeleton : MonoBehaviour {
 	void Awake(){;
 		animator = GetComponent<Animator> ();
 	}
+
+	void Start () {
+		gameManagerRef = GameObject.Find ("GameManager").GetComponent<GameManager> ();	//on start, get reference
+	}
 	
-	void Update(){
+	void FixedUpdate(){
 
 		//Change Animations and Swing Sword
 		animationCounter++;
@@ -45,18 +50,22 @@ public class skeleton : MonoBehaviour {
 		}*/
 
 		//Kill Him
-		if (hitByBlast == true) {
+		/*if (hitByBlast == true) {
 			finalAnimCount++;
 		}
 		if(finalAnimCount==20){
 			Destroy (gameObject);
+		}*/
+
+		if (hitByBlast == true) {
+			Invoke ("killIt", 0.6F);
 		}
 
 		//Change Direction He's Walking
 		distCounter++;
-		if (distCounter < 100&&finalAnimCount==0&&isWalking==true) {
+		if (distCounter < 100/*&&finalAnimCount==0*/&&isWalking==true) {
 			transform.Translate (new Vector3 (moveSpeed, 0, 0) * Time.deltaTime);
-		} else if (distCounter == 100&&finalAnimCount==0) {
+		} else if (distCounter == 100/*&&finalAnimCount==0*/) {
 			moveSpeed *= -1;
 			distCounter = 0;
 		}
@@ -72,30 +81,37 @@ public class skeleton : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter2D(Collider2D target){
-		if (target.gameObject.tag == targetTag) {
+		//if (target.gameObject.tag == targetTag) {
 			//Application.LoadLevel(Application.loadedLevel);
 			//counter = 1;
-		}
+		//}
 		if (target.gameObject.tag == targetTag2) {
 			gameObject.tag="Untagged";
+			isWalking=false;
 			ChangeAnimationState(2);
-			finalAnimCount=0;
+			//finalAnimCount=0;
 			hitByBlast=true;
+			addPoints();
 		}
 		
-		if (target.gameObject.tag == targetTag3) {
+		//if (target.gameObject.tag == targetTag3) {
 			//Destroy (gameObject);
 			//hitByBlast=false;
-		}
+		//}
 	}
-	
-	/*void OnGUI() {
-		if (counter >0) {
-			GUI.Label (new Rect (250, 10, 100, 200), "TRY AGAIN!");
-		}
-	}*/
+
+	public void addPoints()
+	{
+		gameManagerRef.score += 10;
+		gameManagerRef.updateScore ();
+		
+	}
 
 	void ChangeAnimationState(int value){
 		animator.SetInteger ("skeleState", value);
+	}
+
+	void killIt() {
+		Destroy(gameObject);
 	}
 }

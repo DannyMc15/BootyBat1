@@ -8,7 +8,7 @@ public class CollisionState : MonoBehaviour {
 	public Vector2 bottomPosition = Vector2.zero;
 	public float collisionRadius = 10f;
 
-	public string targetTag = "Finish";
+	//public string targetTag = "Finish";
 
 	// Use this for initialization
 	void Start () {
@@ -30,9 +30,9 @@ public class CollisionState : MonoBehaviour {
 
 	}
 
-	void OnTriggerEnter2D(Collider2D target){
+	/*void OnTriggerEnter2D(Collider2D target){
 		if (target.gameObject.tag == targetTag) {
 			Destroy(gameObject);
 		}
-	}
+	}*/
 }

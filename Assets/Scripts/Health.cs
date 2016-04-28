@@ -49,6 +49,19 @@ public class Health : MonoBehaviour {
 		//}
 		
 	}
+
+	void OnTriggerEnter2D (Collider2D target){
+		if (target.gameObject.tag == targetTag3 && isInvulnerable == false) {
+			StartCoroutine(InvulnerableDelay());
+			health--;
+			gameManage.health--;
+			gameManage.healthNumberRef.GetComponent<Text> ().text = health.ToString ();
+			invincibleTimer = 0;
+		}
+		if (health == 0){
+			Application.LoadLevel("GAME_OVER"); 
+		}
+	}
 	
 	private IEnumerator InvulnerableDelay()
 	{
