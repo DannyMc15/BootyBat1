@@ -7,10 +7,10 @@ public class Enemy : MonoBehaviour {
 	public string targetTag2 = "echoBlast";
 	public string targetTag3 = "Falling Hazard";
 
-	private bool hitByBlast = false;
+	//private bool hitByBlast = false;
 
-	private int counter = 0;
-	private int counter2 = 0;
+	//private int counter = 0;
+	//private int counter2 = 0;
 
 	private Animator animator;
 
@@ -22,8 +22,8 @@ public class Enemy : MonoBehaviour {
 		source = GetComponent<AudioSource> ();
 	}
 
-	void Update(){
-		if (counter == 1) {
+	//void Update(){
+		/*if (counter == 1) {
 			counter++;
 		}
 		if (counter == 10000) {
@@ -37,8 +37,8 @@ public class Enemy : MonoBehaviour {
 		if(counter2==6){
 
 			Destroy (gameObject);
-		}
-	}
+		}*/
+	//}
 	
 	void OnTriggerEnter2D(Collider2D target){
 
@@ -47,17 +47,16 @@ public class Enemy : MonoBehaviour {
 			//counter = 1;
 		}
 		if (target.gameObject.tag == targetTag2||target.gameObject.tag==targetTag3) {
-			source.PlayOneShot(sound,2F);
+			source.PlayOneShot(sound,4F);
 			gameObject.tag="Untagged";
 			animator.SetBool("isKilled", true);
-			counter2=0;
-			hitByBlast=true;
+			//counter2=0;
+			//hitByBlast=true;
+			Invoke ("killIt",1);
 		}
 	}
 
-	void OnGUI() {
-		if (counter >0) {
-			GUI.Label (new Rect (250, 10, 100, 200), "TRY AGAIN!");
-		}
+	void killIt(){
+		Destroy (gameObject);
 	}
 }

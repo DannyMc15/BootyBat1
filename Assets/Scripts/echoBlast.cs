@@ -14,6 +14,12 @@ public class echoBlast : MonoBehaviour {
 
 	private Animator animator;
 
+	private ParticleSystem ps;
+	private SpriteRenderer sr;
+	private CircleCollider2D cc;
+
+	private bool hasShot = false;
+
 	void Awake(){
 		body2d = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator> ();
@@ -23,6 +29,9 @@ public class echoBlast : MonoBehaviour {
 	void Start () {
 		//coll = GetComponent<Collider> ();
 		//coll.isTrigger = true;
+		ps = GetComponent<ParticleSystem> ();
+		sr = GetComponent<SpriteRenderer> ();
+		cc = GetComponent<CircleCollider2D> ();
 
 		var startVelX = initialVelocity.x * transform.localScale.x;
 
@@ -42,13 +51,18 @@ public class echoBlast : MonoBehaviour {
 			finalAnimation++;
 		}
 		if (finalAnimation >= 6) {
-			Destroy(gameObject);
+			//Destroy(gameObject);
+			Destroy (sr);
 		}
 	}
 	
 	void OnCollisionEnter2D(Collision2D target){
 		if (bounces == 1) {
 			//print ("collision");
+			if(hasShot==false){
+				ps.Play();
+				hasShot=true;
+			}
 			BlowUp();
 		}
 	}
@@ -57,5 +71,11 @@ public class echoBlast : MonoBehaviour {
 		//animator.SetBool("Active", false);
 		stopped=true;
 		body2d.velocity = new Vector2(0,0);
+		Invoke ("Disintigrate", 1);
+	}
+
+	void Disintigrate(){
+		Destroy (sr);
+		Destroy (cc);
 	}
 }

@@ -10,7 +10,7 @@ public class Collectable : MonoBehaviour {
 	private ParticleSystem ps;
 	private SpriteRenderer sr;
 	private bool canCollect=true;
-	//private ParticleSystem partsys;
+	private ParticleSystem partsys;
 
 	void Start()
 	{
@@ -26,7 +26,7 @@ public class Collectable : MonoBehaviour {
 			ps.Play();
 			//partsys = (ParticleSystem)Instantiate (ps, this.transform.position, Quaternion.identity);
 			OnCollect();
-			OnDestroy ();
+			OnDestroy();
 			canCollect=false;
 		}
 	}

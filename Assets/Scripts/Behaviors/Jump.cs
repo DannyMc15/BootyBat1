@@ -44,15 +44,15 @@ public class Jump : AbstractBehavior {
                 OnFlap();
 				//print("flap");
 				if(clipCounter==0){
-					audio.PlayOneShot(flapSound,0.8F);
+					audio.PlayOneShot(flapSound,1F);
 					clipCounter++;
 				}
 				else if (clipCounter==1){
-					audio.PlayOneShot(flapSound,0.3F);
+					audio.PlayOneShot(flapSound,0.8F);
 					clipCounter++;
 				}
 				else if(clipCounter>=2){
-					audio.PlayOneShot(flapSound,0.1F);
+					audio.PlayOneShot(flapSound,0.5F);
 					//clipCounter=clipCounter-2;
 				}
             }
