@@ -19,9 +19,13 @@ public class skeleton : MonoBehaviour {
 	private bool isWalking = true;
 	
 	private Animator animator;
+
+	AudioSource source;
+	public AudioClip sound;
 	
 	void Awake(){;
 		animator = GetComponent<Animator> ();
+		source = GetComponent<AudioSource> ();
 	}
 
 	void Start () {
@@ -58,6 +62,7 @@ public class skeleton : MonoBehaviour {
 		}*/
 
 		if (hitByBlast == true) {
+			source.PlayOneShot(sound,0.8F);
 			Invoke ("killIt", 0.6F);
 		}
 

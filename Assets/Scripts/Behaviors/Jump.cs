@@ -7,12 +7,12 @@ public class Jump : AbstractBehavior {
     public float flapSpeed = 100f;
     public float jumpDelay = .1f;
     public int jumpCount = 1;
-
-	public AudioClip flapSound1;
-	public AudioClip flapSound2;
-	public AudioClip flapSound3;
+	
 	private int clipCounter = 0;
 	AudioSource audio;
+	public AudioClip flapSound;
+	public AudioClip jumping;
+	private bool jumpNoise = true;
 
     protected float lastJumpTime = 0;
     protected int jumpsRemaining = 0;//for limiting number of flaps
@@ -37,31 +37,43 @@ public class Jump : AbstractBehavior {
 			if(canJump && holdTime < .1f ){//try adding jumps here
                 //jumpsRemaining = jumpCount - 1;
 				OnJump ();
+				clipCounter=0;
 			}
 		} else {
             if(canJump && holdTime < .1f && Time.time - lastJumpTime > jumpDelay /*&& jumpsRemaining > 0*/){
                 OnFlap();
 				//print("flap");
 				if(clipCounter==0){
-					audio.PlayOneShot(flapSound1);
+					audio.PlayOneShot(flapSound,0.8F);
 					clipCounter++;
 				}
 				else if (clipCounter==1){
-					audio.PlayOneShot(flapSound2);
+					audio.PlayOneShot(flapSound,0.3F);
 					clipCounter++;
 				}
-				else if(clipCounter==2){
-					audio.PlayOneShot(flapSound3);
-					clipCounter=clipCounter-2;
+				else if(clipCounter>=2){
+					audio.PlayOneShot(flapSound,0.1F);
+					//clipCounter=clipCounter-2;
 				}
             }
         }
 	}
 
 	protected virtual void OnJump(){
+		//audio.PlayOneShot(jumping);
+		StartCoroutine(jumpingNoise ());
 		var vel = body2d.velocity;
 
 		body2d.velocity = new Vector2 (vel.x, jumpSpeed);
+	}
+
+	IEnumerator jumpingNoise(){
+		if (jumpNoise == true) {
+			audio.PlayOneShot (jumping,0.25F);
+			jumpNoise = false;
+		}
+		yield return new WaitForSeconds (1);
+		jumpNoise = true;
 	}
 
     protected virtual void OnFlap()

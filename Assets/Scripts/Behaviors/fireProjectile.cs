@@ -15,9 +15,13 @@ public class fireProjectile : AbstractBehavior {
 
 	public GameObject shotsNumberRef;
 
+	AudioSource source;
+	public AudioClip spit;
+
 	void Start(){
 		doShoot = FindObjectOfType<GameManager> ();
 		shotsNumberRef = GameObject.Find ("shotsNumber");
+		source = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -48,6 +52,7 @@ public class fireProjectile : AbstractBehavior {
 
 	public void CreateProjectile(Vector2 pos){
 		var clone = Instantiate (projectilePrefab, pos, Quaternion.identity) as GameObject;
+		source.PlayOneShot (spit);
 		clone.transform.localScale = transform.localScale;
 		doShoot.canShoot--;
 		shotsNumberRef.GetComponent<Text> ().text = doShoot.canShoot.ToString ();

@@ -18,9 +18,13 @@ public class Health : MonoBehaviour {
 	public string targetTag3 = "Projectile";
 
 	private GameManager gameManage;
+
+	AudioSource source;
+	public AudioClip sound;
 	
 	void Start(){
 		gameManage = FindObjectOfType<GameManager> ();
+		source = GetComponent<AudioSource> ();
 	}
 	
 	
@@ -32,6 +36,7 @@ public class Health : MonoBehaviour {
 		{
 			StartCoroutine(InvulnerableDelay());
 			health--;
+			source.PlayOneShot(sound);
 			gameManage.health--;
 			gameManage.healthNumberRef.GetComponent<Text> ().text = health.ToString ();
 			invincibleTimer = 0;

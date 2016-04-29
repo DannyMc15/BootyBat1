@@ -16,11 +16,19 @@ public class EnemyFiring : MonoBehaviour {
 	private float distance;
 	private bool start=false;
 
+	AudioSource source;
+	public AudioClip sound;
+
+	private Rigidbody2D body2d;
+	private bool playSound = false;
+
 
 	private GameObject tempObj;//We use this to reference the instantiated projectile
 	// Use this for initialization
 	void Start () {
 		InvokeRepeating ("shootProj", startTime, repeatRate);
+		source = GetComponent<AudioSource> ();
+		body2d = GetComponent<Rigidbody2D> ();
 		//if (attackDelay > 0) 
 		//{
 		//	StartCoroutine (OnAttack());
@@ -29,9 +37,18 @@ public class EnemyFiring : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		distance = Vector3.Distance (player.transform.position, gameObject.transform.position);
+		if (distance <= 1000) {
+			playSound = true;
+		} else {
+			playSound=false;
+		}
 	}
 
 	void shootProj(){
+		if (playSound == true) {
+			source.PlayOneShot (sound);
+		}
 		shootProjectile (new Vector2(xForce, yForce));
 	}
 

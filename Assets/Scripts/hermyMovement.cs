@@ -14,6 +14,9 @@ public class hermyMovement : MonoBehaviour {
 
 	private bool hitByBlast = false;
 	private bool isWalking = true;
+
+	AudioSource source;
+	public AudioClip sound;
 	
 	//private int counter = 0;
 	//private int counter2 = 0;
@@ -22,6 +25,7 @@ public class hermyMovement : MonoBehaviour {
 
 	void Awake(){;
 		hermyAnimator = GetComponent<Animator> ();
+		source = GetComponent<AudioSource> ();
 	}
 	
 	// Use this for initialization
@@ -67,6 +71,7 @@ public class hermyMovement : MonoBehaviour {
 				//counter = 1;
 			//}
 			if (target.gameObject.tag == targetTag2) {
+				source.PlayOneShot(sound,1.5F);
 				gameObject.tag="Untagged";
 				isWalking=false;
 				hermyAnimator.SetBool("killed", true);

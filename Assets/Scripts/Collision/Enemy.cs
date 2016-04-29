@@ -14,8 +14,12 @@ public class Enemy : MonoBehaviour {
 
 	private Animator animator;
 
+	AudioSource source;
+	public AudioClip sound;
+
 	void Awake(){;
 		animator = GetComponent<Animator> ();
+		source = GetComponent<AudioSource> ();
 	}
 
 	void Update(){
@@ -43,6 +47,7 @@ public class Enemy : MonoBehaviour {
 			//counter = 1;
 		}
 		if (target.gameObject.tag == targetTag2||target.gameObject.tag==targetTag3) {
+			source.PlayOneShot(sound,2F);
 			gameObject.tag="Untagged";
 			animator.SetBool("isKilled", true);
 			counter2=0;
